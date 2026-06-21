@@ -93,7 +93,7 @@
   @media(max-width:760px){.cards3,.cards2{grid-template-columns:1fr}}
   /* citação */
   .quote{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
-  .quote img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+  .quote img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.9) contrast(1.05)}
   .quote .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.72),rgba(11,11,13,.6) 50%,rgba(11,11,13,.86))}
   .quote .in{position:relative;max-width:46rem;padding:0 24px}
   .qrule{width:56px;height:2px;background:linear-gradient(90deg,#C6A15B,#7A1F2B);margin:0 auto 24px}
@@ -117,8 +117,8 @@
   @media(max-width:980px){.split{grid-template-columns:1fr}.split .ph{min-height:56vh}.split .ph .fade{display:none}.split .txt{padding:48px 0}}
   /* rafa */
   .rafa{background:var(--noir2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
-  .rafagrid{display:grid;grid-template-columns:.8fr 1fr;gap:46px;align-items:center;max-width:920px;margin:0 auto}
-  .rafa .port{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;max-width:320px;box-shadow:0 0 0 1px rgba(198,161,91,.2),0 36px 70px -34px rgba(0,0,0,.9)}
+  .rafagrid{display:grid;grid-template-columns:.85fr 1fr;gap:46px;align-items:stretch;max-width:920px;margin:0 auto}
+  .rafa .port{position:relative;min-height:440px;border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px rgba(198,161,91,.2),0 36px 70px -34px rgba(0,0,0,.9)}
   .rafa .port img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
   @media(max-width:760px){.rafagrid{grid-template-columns:1fr;text-align:center}.rafa .port{margin:0 auto}}
   /* planos */
