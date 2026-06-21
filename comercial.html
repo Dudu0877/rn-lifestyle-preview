@@ -386,7 +386,7 @@ window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank');});
 var NOTE='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 17.5a2.5 2.5 0 1 1-2.5-2.5c.6 0 1.1.2 1.5.5V4l11-2v12.5a2.5 2.5 0 1 1-2.5-2.5c.6 0 1.1.2 1.5.5V5L9 6.6z"/></svg>';
 var PAUSE='<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
 function setIcon(){b.innerHTML=on?PAUSE:NOTE;b.title=on?'Pausar música':'Tocar música';}
-b.innerHTML=NOTE; a.volume=0.3; a.muted=true; a.play().catch(function(){});
+b.innerHTML=NOTE; a.volume=0.18; a.muted=true; a.play().catch(function(){});
 var evs=['pointerdown','keydown','touchstart','scroll'];
 function cleanup(){evs.forEach(function(e){document.removeEventListener(e,unmute);});}
 function unmute(){if(a.muted&&!a.paused){a.muted=false;on=true;setIcon();}cleanup();}
