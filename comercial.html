@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RN Lifestyle — seu auge não tem data de validade</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir:#0B0B0D; --noir2:#131316; --noir3:#1C1A22; --creme:#F4F1EA; --mut:#8A8A93;
+    --ouro:#C6A15B; --champ:#E7D7B8; --bronze:#9A7B4F; --vinho:#7A1F2B; --vinho2:#93303A;
+    --linha:#2A2A30; --linha2:#3A3A42; --verde:#6E7A63;
+    --serif:"Playfair Display",Didot,"Bodoni 72",Georgia,serif;
+    --sans:Inter,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--noir);color:var(--creme);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  ::selection{background:var(--ouro);color:#0B0B0D}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+  .serif{font-family:var(--serif)}
+  .gold{background-image:linear-gradient(105deg,#EFE6CF,#C6A15B 58%,#9A7B4F 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .glow{background-image:linear-gradient(135deg,#E7D7B8,#C6A15B 55%,#9A7B4F 115%)}
+  .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.34em;color:var(--ouro);display:flex;align-items:center;gap:10px}
+  .eyebrow.c{justify-content:center}
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--vinho)}
+  .eyebrow.c::before{display:none}
+  .btn{display:inline-block;border-radius:999px;padding:13px 26px;font-size:14px;font-weight:700;transition:.2s}
+  .btn-primary{color:#231307}
+  .btn-primary:hover{filter:brightness(1.06)}
+  .btn-ghost{border:1px solid var(--linha2);color:rgba(242,233,216,.85);font-weight:600}
+  .btn-ghost:hover{border-color:var(--ouro);color:var(--ouro)}
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(11,11,13,.8);backdrop-filter:blur(10px);border-bottom:1px solid rgba(42,42,48,.7)}
+  .hrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  nav{display:flex;gap:26px;font-size:13px;color:rgba(242,233,216,.75)}
+  nav a:hover{color:var(--ouro)}
+  @media(max-width:860px){nav{display:none}}
+  .logo{display:inline-flex;align-items:center;gap:11px}
+  .logo .rn{font-family:var(--serif);font-weight:700;font-size:29px;line-height:1;color:var(--ouro);letter-spacing:.07em}
+  .logo .bar{width:1px;height:21px;background:var(--ouro)}
+  .logo .lf{font-family:var(--serif);font-style:italic;font-weight:500;font-size:16px;color:var(--champ)}
+  /* hero */
+  .hero{display:grid;grid-template-columns:1fr 1fr;min-height:86vh}
+  .hero .txt{display:flex;flex-direction:column;justify-content:center;padding:70px 40px 70px 0}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:4.4rem;line-height:1;letter-spacing:-.01em;margin:22px 0 0}
+  .hero .ph{position:relative;overflow:hidden;min-height:86vh}
+  .hero .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.9) contrast(1.05) brightness(.97)}
+  .hero .ph .fade{position:absolute;inset:0;width:36%;background:linear-gradient(90deg,var(--noir),transparent)}
+  .lead{max-width:30rem;font-size:15px;color:rgba(242,233,216,.75);margin-top:22px}
+  .trust{margin-top:30px;font-size:12.5px;color:var(--mut);display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+  .dot{width:7px;height:7px;border-radius:50%;display:inline-block;background:var(--verde);margin-right:7px}
+  @media(max-width:980px){.hero{grid-template-columns:1fr}.hero .txt{order:2;padding:48px 0}.hero .ph{order:1;min-height:60vh}.hero .ph .fade{display:none}.hero h1{font-size:3rem}}
+  /* faixa */
+  .stats{border-top:1px solid var(--linha);border-bottom:1px solid var(--linha);background:var(--noir2)}
+  .statgrid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:28px 10px;text-align:center;border-left:1px solid var(--linha)}
+  .stat:first-child{border-left:0}
+  .stat b{font-family:var(--serif);font-weight:600;font-size:2.1rem;display:block}
+  .stat span{font-size:12px;color:var(--mut)}
+  @media(max-width:680px){.statgrid{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}}
+  /* sections */
+  section.pad{padding:92px 0}
+  h2{font-family:var(--serif);font-weight:500;font-size:2.5rem;line-height:1.12;margin:18px 0 0}
+  .sub{font-size:15px;color:rgba(242,233,216,.7);margin-top:20px;line-height:1.7}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+  .card{border:1px solid var(--linha);background:var(--noir2);border-radius:18px;padding:26px}
+  .card h3{font-family:var(--serif);font-size:1.25rem;color:var(--champ);margin:14px 0 0}
+  .card p{font-size:13.5px;color:rgba(242,233,216,.65);margin-top:8px}
+  .ico{font-size:30px;background-image:linear-gradient(100deg,#B45460,#7A1F2B);-webkit-background-clip:text;background-clip:text;color:transparent}
+  /* gallery */
+  .galwrap{background:var(--noir2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .galgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:48px}
+  .g{position:relative;border-radius:12px;overflow:hidden;box-shadow:0 0 0 1px rgba(198,161,91,.2),0 30px 60px -30px rgba(0,0,0,.85)}
+  .g.big{grid-column:span 2;grid-row:span 2}
+  .g .frame{position:relative;aspect-ratio:3/4}
+  .g.big .frame{aspect-ratio:4/5;height:100%}
+  .g img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.9) contrast(1.05)}
+  .g .lab{position:absolute;left:12px;bottom:10px;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--champ)}
+  .g .shade{position:absolute;inset:auto 0 0 0;height:50%;background:linear-gradient(0deg,rgba(11,11,13,.95),transparent)}
+  @media(max-width:760px){.galgrid{grid-template-columns:repeat(2,1fr)}.g.big{grid-column:span 2}}
+  /* método */
+  .cards2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:54px}
+  .m{border-radius:18px;padding:32px}
+  .m1{border:1px solid var(--linha);background:var(--noir2)}
+  .m2{border:1px solid rgba(122,31,43,.55);background:linear-gradient(135deg,#1b1116,var(--noir2))}
+  .m .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.22em}
+  .m h3{font-family:var(--serif);font-size:1.5rem;margin:12px 0 0}
+  .m p{font-size:14px;color:rgba(242,233,216,.7);margin-top:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+  .chip{border:1px solid var(--linha2);border-radius:999px;padding:5px 13px;font-size:12px;color:rgba(242,233,216,.75)}
+  @media(max-width:760px){.cards3,.cards2{grid-template-columns:1fr}}
+  /* citação */
+  .quote{position:relative;min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+  .quote img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.05)}
+  .quote .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.72),rgba(11,11,13,.6) 50%,rgba(11,11,13,.86))}
+  .quote .in{position:relative;max-width:46rem;padding:0 24px}
+  .qrule{width:56px;height:2px;background:linear-gradient(90deg,#C6A15B,#7A1F2B);margin:0 auto 24px}
+  .quote p.big{font-family:var(--serif);font-weight:500;font-size:2.7rem;line-height:1.16}
+  /* passos */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:18px;overflow:hidden;margin-top:54px}
+  .step{background:var(--noir);padding:26px}
+  .step .n{font-family:var(--serif);font-weight:600;font-size:2.3rem}
+  .step h3{font-family:var(--serif);color:var(--champ);font-size:1.1rem;margin:14px 0 0}
+  .step p{font-size:13px;color:rgba(242,233,216,.65);margin-top:8px}
+  @media(max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+  /* pra quem é */
+  .split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  .split .ph{position:relative;min-height:74vh;overflow:hidden}
+  .split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.9) contrast(1.05)}
+  .split .ph .fade{position:absolute;inset:0 0 0 auto;width:40%;background:linear-gradient(270deg,var(--noir),transparent)}
+  .split .txt{display:flex;flex-direction:column;justify-content:center;padding:70px 0 70px 44px}
+  .list{margin-top:26px;list-style:none;padding:0}
+  .list li{display:flex;gap:12px;font-size:14.5px;color:rgba(242,233,216,.78);margin-bottom:15px}
+  .list .b{margin-top:8px;width:7px;height:7px;border-radius:50%;flex:0 0 auto}
+  @media(max-width:980px){.split{grid-template-columns:1fr}.split .ph{min-height:56vh}.split .ph .fade{display:none}.split .txt{padding:48px 0}}
+  /* rafa */
+  .rafa{background:var(--noir2);border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+  .rafagrid{display:grid;grid-template-columns:.8fr 1fr;gap:46px;align-items:center;max-width:920px;margin:0 auto}
+  .rafa .port{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;max-width:320px;box-shadow:0 0 0 1px rgba(198,161,91,.2),0 36px 70px -34px rgba(0,0,0,.9)}
+  .rafa .port img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+  @media(max-width:760px){.rafagrid{grid-template-columns:1fr;text-align:center}.rafa .port{margin:0 auto}}
+  /* planos */
+  .planos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:54px}
+  .plano{position:relative;display:flex;flex-direction:column;border:1px solid var(--linha);background:var(--noir2);border-radius:18px;padding:28px}
+  .plano.dest{border-color:var(--vinho);background:linear-gradient(180deg,#1b1014,var(--noir2));box-shadow:0 0 0 1px rgba(122,31,43,.55),0 36px 70px -34px rgba(0,0,0,.9)}
+  .plano .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--vinho);color:var(--champ);border-radius:999px;padding:4px 13px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+  .plano h3{font-family:var(--serif);font-size:1.3rem;color:var(--champ);margin:0}
+  .plano .price{margin-top:12px}
+  .plano .price b{font-family:var(--serif);font-weight:600;font-size:2.4rem}
+  .plano ul{list-style:none;padding:0;margin:22px 0 0;flex:1}
+  .plano li{font-size:13.5px;color:rgba(242,233,216,.75);margin-bottom:11px;display:flex;gap:9px}
+  .plano li::before{content:"✓";color:var(--ouro)}
+  /* fechamento */
+  .close{position:relative;min-height:72vh;display:flex;align-items:center;text-align:center;overflow:hidden}
+  .close img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.9) contrast(1.05)}
+  .close .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,11,13,.55),rgba(11,11,13,.8) 60%,rgba(11,11,13,.96))}
+  .close .in{position:relative;max-width:48rem;margin:0 auto;padding:0 22px}
+  .close h2{font-size:3.6rem}
+  /* footer */
+  footer{background:var(--noir2);border-top:1px solid var(--linha)}
+  .fgrid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;padding:54px 0 0}
+  .fcol p.t{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.22em;color:var(--ouro);margin:0 0 10px}
+  .fcol a{display:block;color:rgba(242,233,216,.7);font-size:13px;margin-bottom:6px}
+  .frule{height:1px;background:linear-gradient(90deg,transparent,rgba(122,31,43,.8),transparent);margin:36px 0}
+  .fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:12px;color:var(--mut);padding-bottom:44px}
+  .back{display:inline-block;margin:0 0 6px;font-size:12px;color:var(--ouro)}
+</style>
+</head>
+<body>
+
+<header><div class="wrap hrow">
+  <a class="logo" href="https://dudu0877.github.io/rn-lifestyle-preview/" aria-label="RN Lifestyle">
+    <span class="rn">RN</span><span class="bar"></span><span class="lf">Lifestyle</span>
+  </a>
+  <nav>
+    <a href="#metodo">Método</a><a href="#lifestyle">Lifestyle</a>
+    <a href="#como">Como funciona</a><a href="#planos">Planos</a>
+  </nav>
+  <a class="btn btn-primary glow" href="#planos">Começar grátis</a>
+</div></header>
+
+<!-- HERO -->
+<section class="hero wrap" style="max-width:1120px">
+  <div class="txt">
+    <p class="eyebrow">RN Lifestyle</p>
+    <h1>Seu auge não tem<br><span class="gold serif" style="font-style:italic">data de validade.</span></h1>
+    <p class="lead">Treino que se adapta ao seu corpo, aos equipamentos e ao seu momento de vida — desenhado com inteligência, <span style="color:var(--champ)">assinado por um profissional</span>. Onde você estiver, do jeito que der, efetivo em tudo.</p>
+    <div style="margin-top:34px;display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-primary glow" href="#planos">Começar — 7 dias grátis</a>
+      <a class="btn btn-ghost" href="#como">Como funciona</a>
+    </div>
+    <div class="trust"><span><span class="dot"></span>Método assinado por Rafa Navarro · CREF 211893-G/SP</span><a href="https://instagram.com/rafamnavarro" style="color:var(--mut)">@rafamnavarro</a></div>
+  </div>
+  <div class="ph"><img src="rafa/r13.jpg" alt="Rafa Navarro"><div class="fade"></div></div>
+</section>
+
+<!-- FAIXA -->
+<section class="stats"><div class="wrap"><div class="statgrid">
+  <div class="stat"><b class="gold">7 dias</b><span>gratuitos para experimentar</span></div>
+  <div class="stat"><b class="gold">100%</b><span>assinado por profissional CREF</span></div>
+  <div class="stat"><b class="gold">4 lugares</b><span>academia · condomínio · casa · viagem</span></div>
+  <div class="stat"><b class="gold">18–80</b><span>para todo corpo e nível</span></div>
+</div></div></section>
+
+<!-- MANIFESTO -->
+<section class="pad wrap" id="manifesto">
+  <div style="max-width:48rem">
+    <p class="eyebrow">O que nos move</p>
+    <h2>Estética, vitalidade e tempo de qualidade — <span class="gold serif" style="font-style:italic">não um corpo de molde.</span></h2>
+    <p class="sub">A maioria dos aplicativos entrega a mesma ficha genérica para todos. Acreditamos no contrário: o treino é uma peça da sua vida, não a vida inteira. Ele precisa caber no seu corpo, no que você tem à mão e no momento que você vive — para devolver energia, presença e prazer de existir.</p>
+  </div>
+  <div class="cards3">
+    <div class="card"><span class="ico">✦</span><h3>Lifestyle</h3><p>Treino é meio, não fim. O corpo serve a uma vida boa — viajar, vestir, ir à mesa, ocupar o mundo com presença.</p></div>
+    <div class="card"><span class="ico">∞</span><h3>Longevidade</h3><p>Força e vitalidade que duram. Não é sobre um pico aos 25 — é sobre estar no seu auge em qualquer idade.</p></div>
+    <div class="card"><span class="ico">♥</span><h3>Pertencimento</h3><p>De 18 a 80, do iniciante ao avançado, todo corpo. Aspiração que inclui, nunca que exclui.</p></div>
+  </div>
+</section>
+
+<!-- LIFESTYLE -->
+<section class="galwrap pad" id="lifestyle"><div class="wrap">
+  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:18px">
+    <div style="max-width:36rem"><p class="eyebrow">Lifestyle</p><h2>Treino é só uma parte. <span class="gold serif" style="font-style:italic">O resto é viver.</span></h2></div>
+    <p style="max-width:24rem;font-size:14px;color:rgba(242,233,216,.65)">Moda, viagem, gastronomia, estilo. Um diário aberto de bem-viver — gratuito — que é a porta de entrada para o método. Inspiração antes da assinatura.</p>
+  </div>
+  <div class="galgrid">
+    <div class="g big"><div class="frame"><img src="rafa/r8.jpg" alt="Moda"><div class="shade"></div><span class="lab">Moda</span></div></div>
+    <div class="g"><div class="frame"><img src="rafa/r5.jpg" alt="Viagem"><div class="shade"></div><span class="lab">Viagem</span></div></div>
+    <div class="g"><div class="frame"><img src="rafa/r7.jpg" alt="Estilo"><div class="shade"></div><span class="lab">Estilo</span></div></div>
+    <div class="g"><div class="frame"><img src="rafa/r19.jpg" alt="Cidade"><div class="shade"></div><span class="lab">Cidade</span></div></div>
+    <div class="g"><div class="frame"><img src="rafa/r20.jpg" alt="Lazer"><div class="shade"></div><span class="lab">Lazer</span></div></div>
+  </div>
+</div></section>
+
+<!-- MÉTODO -->
+<section class="pad wrap" id="metodo">
+  <div style="max-width:40rem;margin:0 auto;text-align:center">
+    <p class="eyebrow c">O método</p>
+    <h2 style="font-size:3rem">Inteligência <span class="gold">+</span> Profissional <span class="gold">=</span> <span class="gold serif" style="font-style:italic">Lifestyle</span></h2>
+    <p class="sub">Existem aplicativos com motor inteligente. Existem profissionais de verdade. Quase ninguém une os dois — em português e com lifestyle. Nós unimos.</p>
+  </div>
+  <div class="cards2">
+    <div class="m m1">
+      <span class="tag" style="color:var(--ouro)">A inteligência</span>
+      <h3>Um motor que entende equipamento</h3>
+      <p>Seu treino é montado a partir do que você realmente tem: academia completa, prédio, casa ou apenas o peso do corpo — e por marca de equipamento. Máquina ocupada? Troque por uma alternativa equivalente em um toque.</p>
+      <div class="chips"><span class="chip">Academia completa</span><span class="chip">Condomínio</span><span class="chip">Casa</span><span class="chip">Viagem</span><span class="chip">Peso corporal</span></div>
+    </div>
+    <div class="m m2">
+      <span class="tag" style="color:var(--vinho2)">O profissional</span>
+      <h3>Um profissional que assina</h3>
+      <p>Nenhuma prescrição chega até você sem passar por <span style="color:var(--champ)">Rafa Navarro</span>. Ele revisa, ajusta e assina como responsável técnico — o que garante segurança, vínculo e a confiança de um treino conduzido por quem entende de corpo, não apenas por um algoritmo.</p>
+      <p style="font-size:12.5px;color:var(--mut);margin-top:22px">Responsável Técnico · Rafael Moulin Navarro Oliveira — CREF 211893-G/SP</p>
+    </div>
+  </div>
+</section>
+
+<!-- CITAÇÃO -->
+<section class="quote">
+  <img src="rafa/r10.jpg" alt="Rafa Navarro"><div class="ov"></div>
+  <div class="in"><div class="qrule"></div>
+    <p class="big">Estética é consequência. <span class="gold serif" style="font-style:italic">Vitalidade</span> é o ponto.</p>
+    <p style="max-width:28rem;margin:24px auto 0;font-size:13.5px;color:rgba(242,233,216,.65)">Não perseguimos um corpo de capa. Perseguimos energia, presença e prazer de viver — o corpo bonito vem como consequência.</p>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="galwrap pad" id="como"><div class="wrap">
+  <div style="max-width:34rem"><p class="eyebrow">Como funciona</p><h2>Quatro passos até o <span class="gold serif" style="font-style:italic">seu</span> treino.</h2></div>
+  <div class="steps">
+    <div class="step"><p class="n gold">01</p><h3>Conte sobre você</h3><p>Uma anamnese leve: objetivo, nível, onde você treina e um questionário rápido de prontidão (PAR-Q).</p></div>
+    <div class="step"><p class="n gold">02</p><h3>O motor monta seu treino</h3><p>Seleção inteligente por nível, equipamento disponível e grupos musculares — séries, repetições e progressão calibradas.</p></div>
+    <div class="step"><p class="n gold">03</p><h3>Rafa revisa e assina</h3><p>Cada prescrição passa por Rafa Navarro (CREF) antes de chegar até você — um profissional por trás da inteligência.</p></div>
+    <div class="step"><p class="n gold">04</p><h3>Treino vivo</h3><p>Mudou de academia, viajou ou a máquina está ocupada? O treino se reescreve para o seu lugar e o seu dia.</p></div>
+  </div>
+  <p style="margin-top:24px;font-size:12.5px;color:var(--mut)">* No teste grátis, a anamnese é simplificada. O perfil clínico completo (incluindo aparelho locomotor e o módulo de liberação médica) fica disponível após a adesão.</p>
+</div></section>
+
+<!-- PRA QUEM É -->
+<section class="split">
+  <div class="ph"><img src="rafa/r3.jpg" alt="Rafa Navarro"><div class="fade"></div></div>
+  <div class="txt wrap" style="max-width:560px">
+    <p class="eyebrow">Pra quem é</p>
+    <h2>De 18 a 80. Do primeiro treino ao avançado. <span class="gold serif" style="font-style:italic">Todo corpo.</span></h2>
+    <ul class="list">
+      <li><span class="b" style="background:var(--vinho2)"></span>Quem busca estética e vitalidade sem se tornar refém da academia.</li>
+      <li><span class="b" style="background:var(--ouro)"></span>Quem viaja, muda de cidade, treina em casa ou no prédio — e precisa de um treino que acompanhe.</li>
+      <li><span class="b" style="background:var(--vinho2)"></span>Quem está começando agora e quer ser conduzido por um profissional de verdade, com segurança.</li>
+      <li><span class="b" style="background:var(--ouro)"></span>Quem já é avançado e quer inteligência para romper o platô.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RAFA -->
+<section class="rafa pad"><div class="wrap"><div class="rafagrid">
+  <div class="port"><img src="rafa/r4.jpg" alt="Rafa Navarro"></div>
+  <div>
+    <p class="eyebrow">Quem está por trás</p>
+    <h2 style="font-size:2.4rem">Rafa Navarro</h2>
+    <p style="font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ouro);margin-top:8px">Treinador · Responsável Técnico · CREF 211893-G/SP</p>
+    <p class="sub">Rafa transformou disciplina e estética em estilo de vida — e agora coloca esse método ao alcance de quem não pode (ou não quer) treinar presencialmente com ele. Cada treino que sai daqui carrega a leitura de corpo, o cuidado e a assinatura dele. Não é um algoritmo empurrando séries: é um profissional, potencializado por tecnologia.</p>
+    <div style="margin-top:28px"><a class="btn btn-primary glow" href="#planos">Treinar com o método do Rafa</a></div>
+  </div>
+</div></div></section>
+
+<!-- PLANOS -->
+<section class="pad wrap" id="planos">
+  <div style="max-width:40rem;margin:0 auto;text-align:center">
+    <p class="eyebrow c">Planos</p>
+    <h2>Comece grátis. <span class="gold serif" style="font-style:italic">Fique se fizer sentido.</span></h2>
+    <p class="sub">7 dias por nossa conta para você experimentar o método. Depois, escolha o plano — e cancele quando quiser.</p>
+  </div>
+  <div class="planos">
+    <div class="plano"><h3>Essencial</h3><p class="price"><span style="color:var(--mut)">R$ </span><b class="serif">49,90</b><span style="color:var(--mut)">/mês</span></p><ul><li>Treino adaptado ao seu equipamento</li><li>Biblioteca completa por marca</li><li>Troca de exercício em 1 toque</li></ul><a class="btn btn-ghost" style="margin-top:26px;text-align:center" href="#">Começar grátis</a></div>
+    <div class="plano dest"><span class="badge">Mais escolhido</span><h3>Acompanhamento</h3><p class="price"><span style="color:var(--mut)">R$ </span><b class="serif">89,90</b><span style="color:var(--mut)">/mês</span></p><ul><li>Tudo do Essencial</li><li>Revisão e ajustes do Rafa</li><li>Acompanhamento de carga e evolução</li><li>Prioridade no suporte</li></ul><a class="btn btn-primary glow" style="margin-top:26px;text-align:center" href="#">Começar grátis</a></div>
+    <div class="plano"><h3>Performance</h3><p class="price"><span style="color:var(--mut)">R$ </span><b class="serif">199</b><span style="color:var(--mut)">/mês</span></p><ul><li>Acompanhamento próximo</li><li>Metas e periodização avançada</li><li>Upsells de saúde e nutrição (parceiros)</li></ul><a class="btn btn-ghost" style="margin-top:26px;text-align:center" href="#">Começar grátis</a></div>
+  </div>
+  <p style="margin-top:24px;text-align:center;font-size:12px;color:var(--mut)">Saúde e nutrição (teleconsulta médica e nutricionista parceiro) são serviços à parte, vendidos separadamente.</p>
+</section>
+
+<!-- FECHAMENTO -->
+<section class="close">
+  <img src="rafa/r2.jpg" alt="Rafa Navarro"><div class="ov"></div>
+  <div class="in">
+    <h2>Seu auge não tem<br><span class="gold serif" style="font-style:italic">data de validade.</span></h2>
+    <p style="max-width:28rem;margin:24px auto 0;font-size:15px;color:rgba(242,233,216,.8)">Comece hoje — sem cartão, sem compromisso. Experimente o que é treinar com inteligência e um profissional ao seu lado.</p>
+    <div style="margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary glow" href="#planos">Começar — 7 dias grátis</a>
+      <a class="btn btn-ghost" href="#como">Como funciona</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <a class="back" href="https://dudu0877.github.io/rn-lifestyle-preview/">← voltar ao hub</a>
+  <div class="fgrid">
+    <div class="fcol" style="max-width:22rem">
+      <a class="logo" href="#"><span class="rn">RN</span><span class="bar"></span><span class="lf">Lifestyle</span></a>
+      <p class="serif" style="font-style:italic;color:var(--champ);font-size:18px;margin:16px 0 4px">“Seu auge não tem data de validade.”</p>
+      <p style="font-size:13px;color:var(--mut)">Onde você estiver, do jeito que der, efetivo em tudo.</p>
+    </div>
+    <div class="fcol"><p class="t">Navegar</p><a href="#metodo">Método</a><a href="#lifestyle">Lifestyle</a><a href="#como">Como funciona</a><a href="#planos">Planos</a></div>
+    <div class="fcol" style="max-width:18rem"><p class="t">Contato</p><a href="https://instagram.com/rafamnavarro">@rafamnavarro</a><p style="font-size:12px;color:var(--mut);margin-top:14px;line-height:1.6">Treino físico é atividade privativa de profissional de Educação Física registrado no CREF. O preenchimento do questionário de prontidão (PAR-Q) é parte do cadastro.</p></div>
+  </div>
+  <div class="frule"></div>
+  <div class="fbot"><span>Responsável Técnico Rafael Moulin Navarro Oliveira — CREF 211893-G/SP</span><span>© 2026 RN Lifestyle · Protótipo · Dados de saúde tratados conforme a LGPD.</span></div>
+</div></footer>
+
+</body></html>
