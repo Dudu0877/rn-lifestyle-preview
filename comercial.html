@@ -379,13 +379,19 @@ var t='Olá! Assunto: '+x.a+'.\nSou '+x.n+(x.e?' ('+x.e+')':'')+'.\n\n'+x.m;
 window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(t),'_blank');});
 })();
 </script>
-<audio id="bgm" src="audio/loop.m4a" loop preload="none"></audio>
-<button id="bgmBtn" aria-label="Tocar música" title="Tocar música" style="position:fixed;bottom:20px;right:20px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid rgba(198,161,91,.55);background:rgba(11,11,13,.82);backdrop-filter:blur(6px);color:#C6A15B;display:grid;place-items:center;cursor:pointer"></button>
+<audio id="bgm" src="audio/loop.m4a" loop preload="auto"></audio>
+<button id="bgmBtn" aria-label="Tocar música" title="Tocar música" style="position:fixed;top:18px;left:18px;z-index:60;width:44px;height:44px;border-radius:50%;border:1px solid rgba(198,161,91,.55);background:rgba(11,11,13,.82);backdrop-filter:blur(6px);color:#C6A15B;display:grid;place-items:center;cursor:pointer"></button>
 <script>
 (function(){var a=document.getElementById('bgm'),b=document.getElementById('bgmBtn'),on=false;
 var NOTE='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 17.5a2.5 2.5 0 1 1-2.5-2.5c.6 0 1.1.2 1.5.5V4l11-2v12.5a2.5 2.5 0 1 1-2.5-2.5c.6 0 1.1.2 1.5.5V5L9 6.6z"/></svg>';
 var PAUSE='<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
-b.innerHTML=NOTE;
-b.addEventListener('click',function(){if(on){a.pause();on=false;b.innerHTML=NOTE;b.title='Tocar música';}else{a.volume=0.3;a.play().then(function(){on=true;b.innerHTML=PAUSE;b.title='Pausar música';}).catch(function(){});}});})();
+function setIcon(){b.innerHTML=on?PAUSE:NOTE;b.title=on?'Pausar música':'Tocar música';}
+b.innerHTML=NOTE; a.volume=0.3; a.muted=true; a.play().catch(function(){});
+var evs=['pointerdown','keydown','touchstart','scroll'];
+function cleanup(){evs.forEach(function(e){document.removeEventListener(e,unmute);});}
+function unmute(){if(a.muted&&!a.paused){a.muted=false;on=true;setIcon();}cleanup();}
+evs.forEach(function(e){document.addEventListener(e,unmute,{passive:true});});
+b.addEventListener('pointerdown',function(e){e.stopPropagation();});
+b.addEventListener('click',function(){if(a.muted){a.muted=false;a.play().catch(function(){});on=true;setIcon();return;}if(a.paused){a.play().catch(function(){});on=true;}else{a.pause();on=false;}setIcon();});})();
 </script>
 </body></html>
